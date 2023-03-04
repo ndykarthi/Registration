@@ -13,19 +13,21 @@
     <hr>
 
     <label for="iSurname"><b>SURNAME</b></label><br>
-    <input type="text" placeholder="Enter Surname" name="iSurname" id="iSurname" required><br>
+    <input type="text" placeholder="Enter Surname" name="iSurname" id="iSurname" required="Surname cannot be blank"><br>
 
     <label for="iForename"><b>FORENAME</b></label><br>
-    <input type="text" placeholder="Enter Forename" name="iForename" id="iForename" required><br>
+    <input type="text" placeholder="Enter Forename" name="iForename" id="iForename" required="Forename cannot be blank"><br>
 
     <label for="iEmail"><b>EMAIL</b></label><br>
-    <input type="text" placeholder="Enter Email" name="iEmail" id="iEmail" required><br>
+    <input type="text" placeholder="Enter Email" name="iEmail" id="iEmail" required="Email cnnnot be blank"><br>
 
     <label for="iPassword"><b>PASSWORD</b></label><br>
-    <input type="password" placeholder="Enter Password" name="iPassword" id="iPassword"   required><br>
+    <input type="password" placeholder="Enter Password" name="iPassword" id="iPassword" required="Password cannot be blank">
+    <i class="passeye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i><br>
 
     <label for="iPassword-repeat"><b>REPEAT PASSWORD</b></label><br>
-    <input type="password" placeholder="Repeat Password" name="iPassword-repeat" id="iPassword-repeat" onblur="ipassValidate()" required><br>
+    <input type="password" placeholder="Repeat Password" name="iPassword-repeat" id="iPassword-repeat" onblur="ipassValidate()" required>
+    <i class="passeye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i><br><br>
     <hr>
     <p>By creating an account you agree to our <a href="#" id="iTerms">Terms & Privacy</a>.</p>
 
@@ -35,7 +37,7 @@
     <p>Already have an account? <a href="#" id="iSignin">Sign in</a>.</p>
   </div>
 </form>
-<script type="text/javascript">
+<script type="text/javascript" >
 function ipassValidate()
 {
   let ipass= document.getElementById("iPassword");
@@ -43,10 +45,20 @@ function ipassValidate()
   if(ipass.value==irepPass.value) return;
   else 
   {
-    irepPass = "";
-    alert("Password not matching");
+    irepPass.value = "";
+    ipass.value = "";
+    setTimeout(function(){alert("Password not matching");},3000);
   }
 }
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('iPassword,iPassword-repeat');
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('passeye');
+});
 </script>
 </body>
 </html>

@@ -14,11 +14,10 @@ body {
     background: linear-gradient(111.1deg, rgb(0, 40, 70) -4.8%, rgb(255, 115, 115) 82.7%, rgb(255, 175, 123) 97.2%);
     border: 2px solid black;
 }
-
-/* Full-width input fields */
+/* Full-width input fields*/
 input[type=text], input[type=password] {
     color: black;
-    width: 60%;
+    width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
@@ -51,7 +50,7 @@ hr {
     opacity: 1;
 }
 
-/* Add a blue text color to links */
+/* Add a blue text color to links*/
 a {
     color: dodgerblue;
 }
